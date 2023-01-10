@@ -45,4 +45,30 @@ En este caso voy a usar las siguientes IPs:
 ![servidor2](https://github.com/samarameit/NGINX/blob/main/imagenes/htmlserv2.PNG?raw=true)
 ![](https://github.com/samarameit/NGINX/blob/main/imagenes/serv2.PNG?raw=true)
 
-4.
+4. Comprobamos que desde el servidor2 podemos ver la pagina nginx del servidor 1:
+
+![ejemplo](https://github.com/samarameit/NGINX/blob/main/imagenes/2ve1.PNG?raw=true)
+5. Ahora comenzamos a preparar la máquina de balanceo. Una vez hemos configurado la red como hemos mencionado anteriormente y hemos instalado Nginx procedemos a borrar el archivo de configuracion predeterminado de Nginx y crear uno nuevo:
+
+![balanceo1](https://github.com/samarameit/NGINX/blob/main/imagenes/balanceo1.PNG?raw=true)
+
+Una vez creado el fichero le añadimos las siguientes líneas indicando la IP de nuestros servidores y el nombre del servidor que queramos:
+![balanceo2](https://github.com/samarameit/NGINX/blob/main/imagenes/balanceo2.PNG?raw=true)
+
+6. Comprobamos la sintaxis de los ficheros con 'nginx -t'.
+
+![balanceo2](https://github.com/samarameit/NGINX/blob/main/imagenes/balanceo3.PNG?raw=true)
+
+7. Cambiamos el fichero /etc/hosts y añadimos la ip del servidor de balanceo con el nombre que hemos indicado anteriormente.
+
+![balanceo4](https://github.com/samarameit/NGINX/blob/main/imagenes/balanceo4.PNG?raw=true)
+
+8. Reiniciamos el servicio.
+
+9. Verificamos el Balanceo de carga. Abrimos desde el navegador y accedemos al servidor de equilibrio de carga utilizando la URL http://www.samarameit.com y se redirigirá al servidor 1. 
+
+![balanceo2](https://github.com/samarameit/NGINX/blob/main/imagenes/comprobarbalanceo1.PNG?raw=true)
+
+Despues actualizamos la página continuamente después de un tiempo,y debería cargarse desde el segundo servidor de aplicaciones como se muestra a continuación:
+
+![balanceo2](https://github.com/samarameit/NGINX/blob/main/imagenes/comprobarbalanceo2.PNG?raw=true)
